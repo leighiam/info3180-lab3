@@ -24,7 +24,7 @@ def home():
 @app.route('/about/')
 def about():
     """Render the website's about page."""
-    return render_template('about.html', name="Mary Jane")
+    return render_template('about.html', name="Ashleigh Barker")
 
 
 @app.route('/contact', methods=('GET', 'POST'))
@@ -32,7 +32,7 @@ def contact():
     form = ContactForm()
     if form.validate_on_submit():
         msg = Message(request.form['subject'], sender=(request.form['name'], request.form['email']),
-                      recipients=[' leighiam-c39d29@inbox.mailtrap.io'])
+                      recipients=['leighiam-c39d29@inbox.mailtrap.io'])
         msg.body = request.form['message']
         mail.send(msg)
         flash('Email successfully sent')
